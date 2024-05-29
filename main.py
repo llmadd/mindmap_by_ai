@@ -127,5 +127,5 @@ if start:
                                      first_chat = answer_content,)
         st.session_state.answer = answer_content
         st.subheader(f"{st.session_state.chapter}-:blue[思维导图]", divider="rainbow")
-        svg = markmap(st.session_state.answer,height=400)
+        svg = markmap(st.session_state.answer,height=800)
 
