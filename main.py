@@ -4,7 +4,16 @@ from work.work import Star_Work
 import os
 import pymysql
 from appdb import sql_db
-from datetime import date
+import datetime
+import random
+
+def generate_datetime_with_random_number():
+    # 获取当前的年月日时
+    current_datetime = datetime.datetime.now().strftime("%Y%m%d%H")
+    # 生成一个四位随机数
+    random_number = random.randint(1000, 9999)
+    # 将它们拼接在一起
+    return f"{current_datetime}{random_number}"
 
 config = {
     'host': os.getenv("MYSQL_HOST"),
@@ -122,7 +131,7 @@ if start:
                     answer_content += mes.choices[0].delta.content
                     answer_placeholder.write(answer_content)
         answer_placeholder.write(answer_content)
-        sql_db.insert_id_first_chat(db_corn, question_id = str(date.today()),
+        sql_db.insert_id_first_chat(db_corn, question_id = str(generate_datetime_with_random_number()),
                                      question = st.session_state.model_type["model_type"],
                                      first_chat = answer_content,)
         st.session_state.answer = answer_content
