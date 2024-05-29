@@ -29,7 +29,7 @@ if "answer" not in st.session_state:
 if "model_type" not in st.session_state:
     st.session_state.model_type = {
         "model_type": "baidu",
-        "model_name": "ernie-speed-128k" 
+        "model_name": "ernie-speed-8k" 
     }
 if "pro_key" not in st.session_state:
     st.session_state.pro_key = ""
@@ -52,7 +52,7 @@ with tcol2:
         ("普通版","专业版")
     )
     if model_type == "专业版":
-        if st.session_state.pro_key != "21181960":
+        if st.session_state.pro_key != os.getenv("MY_KEY"):
             st.warning('专业版需要输入专业版密钥', icon="⚠️")
             model_type = "普通版"
         else:
