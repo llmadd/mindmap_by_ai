@@ -44,7 +44,7 @@ if "pro_key" not in st.session_state:
     st.session_state.pro_key = ""
 hcol1, hcol2 = st.columns(2)
 with hcol1:
-    st.title("AI-:blue[爱学帮] :sunglasses:")
+    st.title("AI-:blue[助学帮] :sunglasses:")
 with hcol2:
     with st.expander("有问题请联系我！"):
         st.markdown("* WX: useai_cn")
